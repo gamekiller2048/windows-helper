@@ -10,6 +10,9 @@ This project is a desktop application built using **PySide6**, designed to serve
 - **CMD Runner:** Save and execute custom command line instructions.
 - **Interface:** Runs at top layer and toggleable through hotkey. Adjustable layouts to fit your preferences.
 
+  ![Color Picker Demo](demo/color.gif)
+  ![CMD Runner Demo](demo/cmd.gif)
+
 ## Installation
 
 ### Option 1: Installing from ZIP and Running the Executable
@@ -17,6 +20,7 @@ This project is a desktop application built using **PySide6**, designed to serve
 To quickly set up and run the application:
 
 1. **Download and Extract the ZIP file:**
+
    - Download the latest `windows-helper.zip` file from the releases page.
    - Extract the contents to your desired location on your computer.
 
@@ -29,11 +33,13 @@ To quickly set up and run the application:
 To run the application locally or build it as a standalone executable, follow these steps:
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/LeoCh01/windows-helper.git
    ```
 
 2. **Set up the Python environment:**
+
    - Create a virtual environment in project directory:
      ```bash
      python -m venv venv
@@ -44,11 +50,13 @@ To run the application locally or build it as a standalone executable, follow th
      ```
 
 3. **Install the required dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Run the application locally:**
+
    - Once the environment is set up, you can run the app by executing:
      ```bash
      python windows-helper.py
