@@ -4,5 +4,41 @@
   "description": "test",
   "main": "index.js",
   "startup": false,
-  "toggle_key": "`"
+  "toggle_key": "`",
+  "toggle_direction": "random",
+  "reset": false,
+  "windows": {
+    "0": {
+      "type": "info",
+      "geometry": {
+        "x": 10,
+        "y": 10,
+        "width": 180
+      }
+    },
+    "1": {
+      "type": "cmd",
+      "geometry": {
+        "x": 10,
+        "y": 147,
+        "width": 180
+      }
+    },
+    "2": {
+      "type": "color",
+      "geometry": {
+        "x": 200,
+        "y": 10,
+        "width": 180
+      }
+    },
+    "3": {
+      "type": "chance",
+      "geometry": {
+        "x": 390,
+        "y": 10,
+        "width": 180
+      }
+    }
+  }
 }

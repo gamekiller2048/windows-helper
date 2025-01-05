@@ -11,8 +11,8 @@ RUN_PATH = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run
 
 
 class Info(CustomWindow):
-    def __init__(self, geometry, set_toggle_key=None, key='`'):
-        super().__init__('Info', geometry)
+    def __init__(self, geometry, wid, set_toggle_key=None, key='`'):
+        super().__init__('Info', geometry, wid)
 
         self.grid_layout = QGridLayout()
         self.set_toggle_key = set_toggle_key
@@ -36,6 +36,7 @@ class Info(CustomWindow):
         self.grid_layout.addWidget(self.startup, 3, 0)
 
         self.q = QPushButton('Quit')
+        self.q.setStyleSheet("background-color: #c44; color: white;")
         self.q.clicked.connect(self.quit)
         self.grid_layout.addWidget(self.q, 3, 1)
 

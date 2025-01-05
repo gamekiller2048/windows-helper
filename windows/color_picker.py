@@ -8,31 +8,30 @@ from components.custom_window import CustomWindow
 
 class ColorPicker(CustomWindow):
 
-    def __init__(self, geometry):
-        super().__init__("Color", geometry)
-        self.box = QGroupBox()
-        self.layout.addWidget(self.box)
+    def __init__(self, geometry, wid):
+        super().__init__("Color", geometry, wid)
 
-        self.box_layout = QGridLayout(self.box)
+        self.grid_layout = QGridLayout()
 
         self.color_label = QLabel()
-        self.box_layout.addWidget(self.color_label, 0, 0)
+        self.grid_layout.addWidget(self.color_label, 0, 0)
 
         self.hex = QLabel()
-        self.box_layout.addWidget(self.hex, 0, 1)
+        self.grid_layout.addWidget(self.hex, 0, 1)
 
         self.pixmap_label = QLabel()
-        self.box_layout.addWidget(self.pixmap_label, 1, 0, 2, 2)
+        self.grid_layout.addWidget(self.pixmap_label, 1, 0, 2, 2)
 
         self.copy_btn = QPushButton("copy")
         self.copy_btn.clicked.connect(self.copy_color)
-        self.box_layout.addWidget(self.copy_btn, 0, 2)
+        self.grid_layout.addWidget(self.copy_btn, 0, 2)
 
         self.select_btn = QPushButton("pick color")
         self.select_btn.setCheckable(True)
         self.select_btn.clicked.connect(self.select_color)
-        self.box_layout.addWidget(self.select_btn, 1, 2)
+        self.grid_layout.addWidget(self.select_btn, 1, 2)
 
+        self.layout.addLayout(self.grid_layout)
         self.sf = QGuiApplication.primaryScreen().devicePixelRatio()
         self.timer = QTimer()
         self.update_color()
@@ -42,6 +41,9 @@ class ColorPicker(CustomWindow):
         clipboard.setText(self.hex.text())
 
     def select_color(self):
+        self.select_btn.setText("...")
+        self.select_btn.setStyleSheet("background-color: #eee; color: #000")
+        self.select_btn.setChecked(True)
         self.timer.timeout.connect(self.update_color)
         self.timer.start(100)
         self.mouse_listener = mouse.Listener(win32_event_filter=self.on_click)
@@ -50,6 +52,8 @@ class ColorPicker(CustomWindow):
     def on_click(self, msg, data):
         if msg == 513 and self.select_btn.isChecked():
             self.timer.stop()
+            self.select_btn.setText("pick color")
+            self.select_btn.setStyleSheet("")
             self.select_btn.setChecked(False)
             self.mouse_listener.stop()
             self.mouse_listener.suppress_event()
