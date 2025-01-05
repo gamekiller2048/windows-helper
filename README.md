@@ -8,6 +8,7 @@ This project is a desktop application built using **PySide6**, designed to serve
 
 - **Color Picker:** Select and copy HEX color values on your screen.
 - **CMD Runner:** Save and execute custom command line instructions.
+- **Chance:** flip a coin, roll a dice
 - **Interface:** Runs at top layer and toggleable through hotkey. Adjustable layouts to fit your preferences.
 
   ![Color Picker Demo](demo/color.gif)
