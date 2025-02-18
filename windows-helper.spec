@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['windows-helper.py'],
+    ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('src/windows', 'windows')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -35,5 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['res\\img\\icon.ico'],
+    icon=['src/res/icon.ico'],
 )

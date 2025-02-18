@@ -2,12 +2,12 @@ import subprocess
 import json
 from PySide6.QtWidgets import QPushButton, QVBoxLayout, QLineEdit, QHBoxLayout, QGroupBox, QLabel, QDialogButtonBox, \
     QPlainTextEdit, QCheckBox, QDialog
-from components.custom_window import CustomWindow, CustomDialog
+from src.windows.custom_window import CustomWindow, CustomDialog, RES_PATH
 
 
-class RunCmd(CustomWindow):
-    def __init__(self, geometry, wid):
-        super().__init__("Run Command", geometry, wid)
+class MainWindow(CustomWindow):
+    def __init__(self, wid, geometry=(10, 147, 180, 1)):
+        super().__init__("Run Command", wid, geometry)
 
         self.commands_groupbox = QGroupBox("Commands")
         self.commands_layout = QVBoxLayout()
@@ -80,12 +80,12 @@ class RunCmd(CustomWindow):
         output_dialog.exec()
 
     def save_commands(self):
-        with open('res/commands.json', 'w') as f:
+        with open(RES_PATH + 'commands.json', 'w') as f:
             json.dump(self.commands, f)
 
     def load_commands(self):
         try:
-            with open('res/commands.json', 'r') as f:
+            with open(RES_PATH + 'commands.json', 'r') as f:
                 self.commands = json.load(f)
         except Exception as e:
             print("error :: ", e)
