@@ -2,11 +2,11 @@
 
 
 a = Analysis(
-    ['main.py'],
+    ['app/main.py'],
     pathex=[],
     binaries=[],
-    datas=[('src/windows', 'windows')],
-    hiddenimports=[],
+    datas=[('app/windows', 'windows'), ('app/res', 'res')],
+    hiddenimports=['pynput', 'ollama', 'requests'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -35,5 +35,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['src/res/icon.ico'],
+    icon=['app/res/img/icon.ico'],
 )

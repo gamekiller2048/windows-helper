@@ -1,0 +1,7 @@
+RES_PATH = 'res/'
+IMG_PATH = 'res/img/'
+SETTINGS_PATH = 'res/settings.json'
+CMDS_PATH = 'res/commands.json'
+CLIPBOARD_PATH = 'res/clipboard.json'
+CHAT_PATH = 'res/chat.json'
+STYLES_PATH = 'res/styles.qss'

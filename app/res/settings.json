@@ -1,0 +1,36 @@
+{
+  "name": "Windows Helper",
+  "version": "2.0.0",
+  "description": "versatile tool for windows.",
+  "main": "main.py",
+  "startup": false,
+  "toggle_key": "`",
+  "toggle_direction": "down",
+  "default_pos": true,
+  "windows": [
+    {
+      "script": "info.py"
+    },
+    {
+      "script": "run_command.py"
+    },
+    {
+      "script": "color_picker.py"
+    },
+    {
+      "script": "chance.py"
+    },
+    {
+      "script": "clipboard.py"
+    },
+    {
+      "script": "chat.py",
+      "geometry": [
+        1179,
+        379,
+        500,
+        600
+      ]
+    }
+  ]
+}

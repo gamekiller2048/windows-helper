@@ -6,14 +6,19 @@ This project is a desktop application built using **PySide6**, designed to serve
 
 ## Features
 
-- **Color Picker:** Select and copy HEX color values on your screen.
 - **CMD Runner:** Save and execute custom command line instructions.
-- **Chance:** Flip a coin, roll a dice
-- **Customize:** Create and Add custom windows without rebuilding
-- **Interface:** Runs at top layer and toggleable through hotkey. Adjustable layouts to fit your preferences.
+- **Color Picker:** Select and copy HEX color values on your screen.
+- **Chance:** Flip a coin, roll a dice.
+- **Clipboard:** Store copy history.
+- **Chat:** run AI prompts on your screen. Depending on the type, you may need to add your api key in the `res/chat.json` file.
+- **Customize:** Create and Add custom windows without rebuilding.
 
-  ![Color Picker Demo](demo/color.gif)
-  ![CMD Runner Demo](demo/cmd.gif)
+This application Runs at the top layer and is toggleable through a hotkey. Layouts are adjustable to fit your preferences.
+
+<img src="demo/wh-chat.gif" width="250">
+<img src="demo/wh-color.gif" width="250">
+<img src="demo/wh-cmd.gif" width="250">
+<img src="demo/wh-chance.gif" width="250">
 
 ## Installation
 
@@ -64,25 +69,34 @@ To run the application locally or build it as a standalone executable, follow th
      python windows-helper.py
      ```
 
-5. **Convert to Executable (Optional):**
-   - If you want to convert the application into a standalone `.exe` file, run the following command:
-     ```bash
-     pyinstaller windows-helper.spec
-     ```
-   - The `.exe` file will be generated in the `dist` folder inside the project directory.
-   - Make sure to copy the `src` folder into the `dist` folder to use the resources and windows.
+## Settings Config
 
-### Adding Custom Windows
+Some application configurations can be modified in the `res/settings.json` file. Below is an example of the settings you can adjust:
 
-To create a new window, you can add a Python script to the `src/windows` directory and enable it in the `src/res/settings.json` file. You can use the template provided in `src/windows/temp.py` as a starting point.
+```json
+{
+  "startup": true,
+  "toggle_key": "`",
+  "toggle_direction": "random",
+  "default_pos": true
+}
+```
+
+- **startup:** Run the application at startup. (`true`/`false`)
+- **toggle_key:** The hotkey to toggle the application.
+- **toggle_direction:** (`up`/`down`/`left`/`right`/`random`).
+- **default_pos:** Disable custom window positions (`true`/`false`)
+
+## Adding Custom Windows
+
+To create a new window, you can add a Python script to the `windows` directory and enable it in the `res/settings.json` file. You can use the template provided in `windows/temp.py` as a starting point.
 
 1. **Add your Python script:**
 
-   - Create a new Python file in the `src/windows` directory. For example, `my_custom_window.py`.
-   - Use the template in `src/windows/temp.py` to structure your new window script.
+   - Create a new Python file in the `windows` directory. For example, `my_custom_window.py`.
 
 2. **Enable the new window:**
-   - Open the `src/res/settings.json` file.
+   - Open the `res/settings.json` file.
    - Add an entry for your new window in the JSON configuration. For example:
      ```json
      {
@@ -94,8 +108,8 @@ To create a new window, you can add a Python script to the `src/windows` directo
      }
      ```
 
-By following these steps, you can easily add and enable custom windows without rebuilding the entire application.
+By following these steps, you can easily add custom windows without rebuilding the application.
 
 ## Contact
 
-For any inquiries or support, please reach out to leocheng333375749@gmail.com
+For any support, please reach out to ch3.leoo@gmail.com
