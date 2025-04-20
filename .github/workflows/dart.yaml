@@ -19,7 +19,9 @@ jobs:
           cache: 'pip'
 
       - name: Install Python Packages
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
 
       - name: Build PyInstaller
         run: pyinstaller windows-helper.spec
